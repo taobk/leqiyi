@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::group([
 
-    'namespace'=>'Pc\Auth\AuthController',
+    'namespace'=>'Pc\Auth',
 
 ],function(){
 
