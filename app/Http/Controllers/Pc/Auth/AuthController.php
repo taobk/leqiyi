@@ -23,7 +23,7 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-        return 1;
+        return view('pc.auth.login');
     }
 
     public function postLogin()
