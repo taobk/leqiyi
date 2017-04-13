@@ -40,6 +40,19 @@ Route::group([
 
 });
 
+//获取图片验证码
+Route::get('captcha', function () {
+    return Captcha::create();
+});
+
+//检测图片验证码是正确
+Route::get('captcha/check', function () {
+    if (Captcha::check($_GET['captcha'])) {
+        return response()->json(['success' => true]);
+    } else {
+        return response()->json(['success' => false]);
+    }
+});
 
 
 

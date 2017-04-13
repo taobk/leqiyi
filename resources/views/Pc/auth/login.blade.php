@@ -44,6 +44,7 @@
                     <span class="item">·</span>
                     <a class="item"  ms-class="[@current==='register' ? 'active' : '']"  ms-click="@onCurrentTab('register')">注册</a>
                 </div>
+                {{--登录--}}
                 <div ms-visible="@current==='login'">
                     <div class="field">
                         <div class="ui left icon input">
@@ -70,17 +71,28 @@
                     </div>
                     <div class="ui fluid large blue submit button">登录</div>
                 </div>
+                {{--注册--}}
                 <div ms-visible="@current==='register'">
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="请输入邮箱地址">
+                            <input type="text" name="email" placeholder="注册邮箱地址">
                         </div>
                     </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="请输入账号密码">
+                    <div class="two fields">
+                        <div class="ten wide field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="请输入验证码">
+                            </div>
+                        </div>
+                        <div class="six wide field">
+                            <img ms-attr="{src:@rsrc}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="sixteen wide field">
+                            <label style="float: right"><a>登陆遇到问题?</a></label>
                         </div>
                     </div>
                     <div class="ui fluid large blue submit button">注册</div>
