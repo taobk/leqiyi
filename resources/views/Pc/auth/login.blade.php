@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/semantic.min.css') }}">
     <style type="text/css">
         body {
             background-color: #F1F1F1;
@@ -34,7 +34,7 @@
         <h1 class="ui blue image header">
             {{--<img src="assets/images/logo.png" class="image">--}}
             <div class="content">
-                Login
+                了其意
             </div>
         </h1>
         <form class="ui form">
@@ -107,8 +107,8 @@
 </div>
 
 </body>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/semantic.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/avalon.min.js') }}"></script>
 <script src="{{ URL::asset('assets/build/modules/auth/login.js') }}"></script>
 </html>
