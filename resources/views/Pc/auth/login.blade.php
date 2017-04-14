@@ -90,11 +90,11 @@
                             <img ms-attr="{src:@rsrc}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
                         </div>
                     </div>
-                    <div class="fields">
-                        <div class="sixteen wide field">
-                            <label style="float: right"><a>登陆遇到问题?</a></label>
-                        </div>
-                    </div>
+                    {{--<div class="fields">--}}
+                        {{--<div class="sixteen wide field">--}}
+                            {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="ui fluid large blue submit button">注册</div>
                 </div>
             </div>
