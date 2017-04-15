@@ -33,11 +33,11 @@
     <div class="column">
         <h1 class="ui blue image header">
             {{--<img src="assets/images/logo.png" class="image">--}}
-            <div class="content">
+            <div class="content" style="margin-bottom: 20px;">
                 了其意
             </div>
         </h1>
-        <form class="ui form">
+
             <div class="ui stacked segment">
                 <div class="ui center aligned secondary pointing menu">
                     <a class="item"  ms-class="[@current==='login' ? 'active' : '']"  ms-click="@onCurrentTab('login')">登录</a>
@@ -46,60 +46,64 @@
                 </div>
                 {{--登录--}}
                 <div ms-visible="@current==='login'">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="请输入邮箱地址">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="请输入账号密码">
-                        </div>
-                    </div>
-                    <div class="two fields">
-                        <div class="twelve wide field">
-                            <div class="ui toggle checkbox" style="float: left">
-                                <input type="checkbox" tabindex="0" class="hidden">
-                                <label>记住我</label>
+                    <form class="ui form" ms-validate="@validate">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="email" placeholder="请输入邮箱地址">
                             </div>
                         </div>
-                        <div class="five wide field">
-                            <label style="float: right"><a>登陆遇到问题?</a></label>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="请输入账号密码">
+                            </div>
                         </div>
-                    </div>
-                    <div class="ui fluid large blue submit button">登录</div>
+                        <div class="two fields">
+                            <div class="twelve wide field">
+                                <div class="ui toggle checkbox" style="float: left">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>记住我</label>
+                                </div>
+                            </div>
+                            <div class="five wide field">
+                                <label style="float: right"><a>登陆遇到问题?</a></label>
+                            </div>
+                        </div>
+                        <input class="ui fluid large blue submit button" type="submit" value="登录">
+                    </form>
                 </div>
                 {{--注册--}}
                 <div ms-visible="@current==='register'">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="注册邮箱地址">
-                        </div>
-                    </div>
-                    <div class="two fields">
-                        <div class="ten wide field">
+                    <form class="ui form" ms-validate="@validate">
+                        <div class="field">
                             <div class="ui left icon input">
-                                <i class="lock icon"></i>
-                                <input type="password" name="password" placeholder="请输入验证码">
+                                <i class="user icon"></i>
+                                <input type="text" name="email" ms-duplex="@remail" placeholder="注册邮箱地址" ms-rules="{email:true}">
                             </div>
                         </div>
-                        <div class="six wide field">
-                            <img ms-attr="{src:@rsrc}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
+                        <div class="two fields">
+                            <div class="ten wide field">
+                                <div class="ui left icon input">
+                                    <i class="lock icon"></i>
+                                    <input type="vcode" name="password" ms-duplex="@rvcode" ms-blur="@onVcode" placeholder="请输入验证码" ms-rules="{required:true}">
+                                </div>
+                            </div>
+                            <div class="six wide field">
+                                <img ms-attr="{src:@rsrc}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
+                            </div>
                         </div>
-                    </div>
-                    {{--<div class="fields">--}}
-                        {{--<div class="sixteen wide field">--}}
-                            {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
+                        {{--<div class="fields">--}}
+                            {{--<div class="sixteen wide field">--}}
+                                {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
+                            {{--</div>--}}
                         {{--</div>--}}
-                    {{--</div>--}}
-                    <div class="ui fluid large blue submit button">注册</div>
+                        <input class="ui fluid large blue submit button" type="submit" value="注册">
+                    </form>
                 </div>
             </div>
-            <div class="ui error message"></div>
-        </form>
+            {{--<div class="ui error message"></div>--}}
+        {{--</form>--}}
         <div class="ui message">
             忘记密码 ?&nbsp;<a href="#">找回密码</a>
         </div>
