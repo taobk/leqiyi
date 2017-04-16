@@ -1,10 +1,7 @@
 //复选框
 $('.ui.checkbox').checkbox();
 
-jQuery.ajax({
-    method : "GET",
-    url    : '',
-});
+$('#rshow').hide();
 
 var vm = avalon.define({
     
@@ -26,7 +23,11 @@ var vm = avalon.define({
             url     : '/captcha/check?captcha='+vm.rvcode,
             success : function (ret) {
                 if (ret.success){
-                    console.log(1);
+                    $.ajax({
+                        url : '/email?'
+                    });
+                    $('#rshow').show();
+
                 }else{
                     vm.rsrc = '/captcha?'+Math.random().toString(36).substr(2);
                 }

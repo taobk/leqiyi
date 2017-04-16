@@ -79,7 +79,7 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" ms-duplex="@remail" placeholder="注册邮箱地址" ms-rules="{email:true}">
+                                <input type="text" name="email" ms-duplex="@remail" placeholder="注册邮箱地址" ms-rules="{required:true,email:true}">
                             </div>
                         </div>
                         <div class="two fields">
@@ -98,6 +98,13 @@
                                 {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
                             {{--</div>--}}
                         {{--</div>--}}
+                        <div class="field" id="rshow">
+                            <div class="ui left icon action input">
+                                <i class="lock icon"></i>
+                                <input type="text" placeholder="请输入邮箱验证码" style="width:203px;" >
+                                <span class="ui button">获取邮箱验证码</span>
+                            </div>
+                        </div>
                         <input class="ui fluid large blue submit button" type="submit" value="注册">
                     </form>
                 </div>

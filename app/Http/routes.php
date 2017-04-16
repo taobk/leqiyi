@@ -38,6 +38,9 @@ Route::group([
 
     Route::post('forget','AuthController@postForget');
 
+    //邮箱验证码发送
+    Route::get('send','AuthController@send');
+
 });
 
 //获取图片验证码
@@ -53,6 +56,8 @@ Route::get('captcha/check', function () {
         return response()->json(['success' => false]);
     }
 });
+
+
 
 
 
