@@ -63,12 +63,12 @@ class AuthController extends Controller
     {
         $data = [
             'email' => $request->input('email'),
-            'code'  => $request->input('code')
+            'activationcode'  => $request->input('code')
         ];
 
         $validator = Validator::make($data,[
             'email' => 'required|email',
-            'code'  => 'required',
+            'activationcode'  => 'required',
         ]);
 
         if ($validator->fails()){

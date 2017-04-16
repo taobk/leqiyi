@@ -1,14 +1,4 @@
-{{--<!doctype html>--}}
-{{--<html lang="zh-CN">--}}
-{{--<head>--}}
-    {{--<meta charset="UTF-8">--}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-{{--</head>--}}
-{{--<body>--}}
 {{--<a href="{{ URL('active?uid='.$uid.'&activationcode='.$activationcode) }}" target="_blank">点击激活你的账号</a>--}}
-{{--</body>--}}
-{{--</html>--}}
-{{--<link href="https://fonts.googleapis.com/css?family=Lato|Helvetica Neue" rel="stylesheet">--}}
 <div style = "width: 610px;height: 300px;background-color: #f9f9f9;">
     {{--<div style = "width: 100%;height: 83px;text-align: center;">--}}
         {{--<img style=" margin-top: 23px" src="http://wx.qlogo.cn/mmhead/Q3auHgzwzM6hO6SQmWpBLx1jGSRgmOTyBERSOJ7sugicJAfgyBW9BDA/0">--}}
@@ -23,7 +13,7 @@
         </div>
         <div style="font-size: 48px;color: #13243f;font-family: Helvetica Neue;
         font-style: normal;font-weight: 300;margin: 32px auto 32px;text-align: center;">
-            125762
+            {{ $activationcode }}
         </div>
         <div style="font-size: 17px;color: #13243f;font-family: Lato;font-weight: 400;
         max-width: 538px;line-height: 23px;margin-bottom: 19px;">
