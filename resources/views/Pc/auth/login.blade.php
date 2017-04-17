@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>了其意 -登陆注册</title>
     <link rel="stylesheet" href="{{ URL::asset('assets/css/semantic.min.css') }}">
     <style type="text/css">
         body {
