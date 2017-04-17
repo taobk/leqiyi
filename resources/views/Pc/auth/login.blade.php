@@ -6,8 +6,9 @@
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="UTF-8">
-    <title>了其意 -登陆注册</title>
+    <title>了其意 |登陆注册 -最懂您的购物折扣返利网</title>
     <link rel="stylesheet" href="{{ URL::asset('assets/css/semantic.min.css') }}">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <style type="text/css">
         body {
             background-color: #F1F1F1;
@@ -32,8 +33,8 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <h1 class="ui blue image header">
-            {{--<img src="assets/images/logo.png" class="image">--}}
-            <div class="content" style="margin-bottom: 20px;">
+            <img src="/logo.png" class="ui mini image">
+            <div class="content" >
                 了其意
             </div>
         </h1>
