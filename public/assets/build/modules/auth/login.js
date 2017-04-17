@@ -9,21 +9,18 @@ var vm = avalon.define({
     current      : 'login',
     src          : '/captcha?'+Math.random().toString(36).substr(2),    //验证码图片
     remail       : "",    //注册的邮箱
-    rpwd         : "",    //注册的密码
-    rvcode       : "",    //注册的验证码
     vcode        : "",
     start        : 60,
     width        : "",
 
-
-
-
+    //切换卡
     onCurrentTab : function(key){
         vm.current = key;
     },
     // onCaptcha    : function () {
     //     vm.src     = '/captcha?'+Math.random().toString(36).substr(2);
     // },
+    //获取邮箱验证码
     onVcode      : function () {
         if (vm.remail){
             if (vm.start === 60){
@@ -31,7 +28,7 @@ var vm = avalon.define({
                     url     : '/send?email='+vm.remail,
                     success : function (ret) {
                         if(!ret.success){
-                            console.log(ret.message);
+                            console.log(ret.msg);
                         }else{
                             vm.start = 59;
                             setTimeout(function () {
@@ -66,20 +63,59 @@ var vm = avalon.define({
         }else{
             console.log(1);
         }
-    },
-
-    validate     : {
-        onError: function (reasons) {
-            reasons.forEach(function (reason) {
-                console.log(reason.getMessage())
-            })
-        },
-        onValidateAll: function (reasons) {
-            if (reasons.length) {
-                console.log('有表单没有通过')
-            } else {
-                console.log('全部通过')
-            }
-        }
     }
 });
+
+//表单验证
+$('.ui.register.form').form({
+    fields: {
+        email: {
+            identifier  : 'email',
+            rules: [
+                {
+                    type   : 'empty',
+                    prompt : '请输入邮箱号!'
+                },
+                {
+                    type   : "email",
+                    prompt : '邮箱格式不正确!'
+                }
+            ]
+        },
+        password: {
+            identifier  : 'password',
+            rules: [
+                {
+                    type   : 'empty',
+                    prompt : '请输入密码!'
+                },
+                {
+                    type   : "minLength[6]",
+                    prompt : '长度不能小于6位数!'
+                }
+            ]
+        },
+        vcode: {
+            identifier  : 'vcode',
+            rules: [
+                {
+                    type   : 'empty',
+                    prompt : '请输入验证码 !'
+                }
+            ]
+        }
+    },
+    onSuccess:function () {
+        var data = $('.ui.register.form').serialize();
+        $.ajax({
+            url: '/register',
+            type: 'POST',
+            data: data
+        }).done(function(ret){
+            console.log(ret);
+        });
+        return false;
+    }
+
+});
+

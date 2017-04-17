@@ -35,7 +35,7 @@
         <h1 class="ui blue image header">
             <img src="/logo.png" class="ui mini image">
             <div class="content" >
-                了其意
+                乐其意
             </div>
         </h1>
 
@@ -76,17 +76,19 @@
                 </div>
                 {{--注册--}}
                 <div ms-visible="@current==='register'">
-                    <form class="ui form" ms-validate="@validate">
+                    <form class="ui register form" id="register">
+                        {{--{!! csrf_field() !!}--}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" ms-duplex="@remail" placeholder="请输入注册邮箱地址" ms-rules="{required:true,email:true}">
+                                <input type="text" name="email" ms-duplex="@remail" placeholder="请输入注册邮箱地址">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                <input type="password" name="password" ms-duplex="@rpwd" placeholder="请输入注册账号密码" ms-rules="{required:true,minlength:6}">
+                                <input type="password" name="password"  placeholder="请输入注册账号密码" >
                             </div>
                         </div>
                         {{--<div class="two fields">--}}
@@ -108,15 +110,15 @@
                         <div class="field">
                             <div class="ui left icon action input">
                                 <i class="lock icon"></i>
-                                <input type="text" placeholder="请输入邮箱的验证码" style="width: 180px;" ms-duplex="@rvcode" ms-rules="{required:true,minlength:6}">
+                                <input type="text" placeholder="请输入邮箱的验证码" style="width: 180px;" name="vcode">
                                 <span class="ui button" ms-click="@onVcode"  ms-class="[@start !== 60 ? 'disabled': '']">获取验证码<span id="times"></span></span>
                             </div>
                         </div>
                         <input class="ui fluid large blue submit button" type="submit" value="注册">
+                        <div class="ui error message"></div>
                     </form>
                 </div>
             </div>
-            {{--<div class="ui error message"></div>--}}
         {{--</form>--}}
         <div class="ui message">
             忘记密码 ?&nbsp;<a href="#">找回密码</a>
