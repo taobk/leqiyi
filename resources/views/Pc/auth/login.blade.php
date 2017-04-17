@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>了其意 |登陆注册 -最懂您的购物折扣返利网</title>
     <link rel="stylesheet" href="{{ URL::asset('assets/css/semantic.min.css') }}">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/logo.ico" type="image/x-icon"/>
     <style type="text/css">
         body {
             background-color: #F1F1F1;
