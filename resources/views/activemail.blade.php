@@ -24,7 +24,7 @@
         <div style="font-size: 17px;color: #13243f;font-family: Lato;font-weight: 400;margin-bottom: 2px;">
         </div>
         <div style="font-size: 17px;color: #13243f;font-family: Lato;font-weight: 400;">
-            此验证码仅可使用一次.五分钟后失效,请尽快输入验证!
+            此验证码仅可使用一次.一小时后失效,请尽快输入验证!
         </div>
     </div>
 </div>
