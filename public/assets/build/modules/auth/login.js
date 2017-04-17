@@ -7,33 +7,67 @@ var vm = avalon.define({
     
     $id          : 'login',
     current      : 'login',
-    lsrc         : '/captcha?'+Math.random().toString(36).substr(2),
-    rsrc         : '/captcha?'+Math.random().toString(36).substr(2),
-    remail       : "",
-    rvcode       : "",
+    src          : '/captcha?'+Math.random().toString(36).substr(2),    //验证码图片
+    remail       : "",    //注册的邮箱
+    rpwd         : "",    //注册的密码
+    rvcode       : "",    //注册的验证码
+    vcode        : "",
+    start        : 60,
+    width        : "",
+
+
+
 
     onCurrentTab : function(key){
         vm.current = key;
     },
-    onCaptcha    : function () {
-        vm.rsrc = '/captcha?'+Math.random().toString(36).substr(2);
-    },
+    // onCaptcha    : function () {
+    //     vm.src     = '/captcha?'+Math.random().toString(36).substr(2);
+    // },
     onVcode      : function () {
-        $.ajax({
-            url     : '/captcha/check?captcha='+vm.rvcode,
-            success : function (ret) {
-                if (ret.success){
-                    $.ajax({
-                        url : '/email?'
-                    });
-                    $('#rshow').show();
+        if (vm.remail){
+            if (vm.start === 60){
+                $.ajax({
+                    url     : '/send?email='+vm.remail,
+                    success : function (ret) {
+                        if(!ret.success){
+                            console.log(ret.message);
+                        }else{
+                            vm.start = 59;
+                            setTimeout(function () {
+                                vm.onVcode()
+                            }, 1000);
+                        }
+                    }
+                })
+            }
+            if (vm.start > 0 && vm.start !==60) {
+                $('#times').text('(' + vm.start + 's)');
+                setTimeout(function () {
+                    vm.onVcode()
+                }, 1000);
+                vm.start = vm.start - 1;
+            } else {
+                $('#times').text('');
+                vm.start = 60;
+                return false;
+            }
 
-                }else{
-                    vm.rsrc = '/captcha?'+Math.random().toString(36).substr(2);
-                }
-            } 
-        });
+            // $.ajax({
+            //     url     : '/captcha/check?captcha='+vm.vcode,
+            //     success : function (ret) {
+            //         if (ret.success){
+            //             vm.rvcode = vm.vcode;
+            //             $('#rshow').show();
+            //
+            //         }
+            //     }
+            // });
+        }else{
+            console.log(1);
+        }
     },
+
     validate     : {
         onError: function (reasons) {
             reasons.forEach(function (reason) {

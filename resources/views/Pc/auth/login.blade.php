@@ -82,27 +82,33 @@
                                 <input type="text" name="email" ms-duplex="@remail" placeholder="注册邮箱地址" ms-rules="{required:true,email:true}">
                             </div>
                         </div>
-                        <div class="two fields">
-                            <div class="ten wide field">
-                                <div class="ui left icon input">
-                                    <i class="lock icon"></i>
-                                    <input type="vcode" name="password" ms-duplex="@rvcode" ms-blur="@onVcode" placeholder="请输入验证码" ms-rules="{required:true}">
-                                </div>
-                            </div>
-                            <div class="six wide field">
-                                <img ms-attr="{src:@rsrc}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" ms-duplex="@rpwd" placeholder="请输入账号密码" ms-rules="{required:true,minlength:6}">
                             </div>
                         </div>
+                        {{--<div class="two fields">--}}
+                            {{--<div class="ten wide field">--}}
+                                {{--<div class="ui left icon input">--}}
+                                    {{--<i class="lock icon"></i>--}}
+                                    {{--<input type="vcode" name="password" ms-duplex="@vcode" ms-blur="@onVcode" placeholder="请输入验证码" ms-rules="{required:true}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="six wide field">--}}
+                                {{--<img ms-attr="{src:@src}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         {{--<div class="fields">--}}
                             {{--<div class="sixteen wide field">--}}
                                 {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                        <div class="field" id="rshow">
+                        <div class="field">
                             <div class="ui left icon action input">
                                 <i class="lock icon"></i>
-                                <input type="text" placeholder="请输入邮箱验证码" style="width:203px;" >
-                                <span class="ui button">获取邮箱验证码</span>
+                                <input type="text" placeholder="请输入邮箱验证码" style="width: 180px;" ms-duplex="@rvcode" ms-rules="{required:true,minlength:6}">
+                                <span class="ui button" ms-click="@onVcode"  ms-class="[@start !== 60 ? 'disabled': '']">获取验证码<span id="times"></span></span>
                             </div>
                         </div>
                         <input class="ui fluid large blue submit button" type="submit" value="注册">
