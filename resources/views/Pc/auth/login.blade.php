@@ -79,13 +79,13 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" ms-duplex="@remail" placeholder="注册邮箱地址" ms-rules="{required:true,email:true}">
+                                <input type="text" name="email" ms-duplex="@remail" placeholder="请输入注册邮箱地址" ms-rules="{required:true,email:true}">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                <input type="password" name="password" ms-duplex="@rpwd" placeholder="请输入账号密码" ms-rules="{required:true,minlength:6}">
+                                <input type="password" name="password" ms-duplex="@rpwd" placeholder="请输入注册账号密码" ms-rules="{required:true,minlength:6}">
                             </div>
                         </div>
                         {{--<div class="two fields">--}}
@@ -107,7 +107,7 @@
                         <div class="field">
                             <div class="ui left icon action input">
                                 <i class="lock icon"></i>
-                                <input type="text" placeholder="请输入邮箱验证码" style="width: 180px;" ms-duplex="@rvcode" ms-rules="{required:true,minlength:6}">
+                                <input type="text" placeholder="请输入邮箱的验证码" style="width: 180px;" ms-duplex="@rvcode" ms-rules="{required:true,minlength:6}">
                                 <span class="ui button" ms-click="@onVcode"  ms-class="[@start !== 60 ? 'disabled': '']">获取验证码<span id="times"></span></span>
                             </div>
                         </div>

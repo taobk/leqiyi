@@ -85,8 +85,7 @@ class AuthController extends Controller
             if ($exis){
                 //如果错误的次数超过10次.看一下还有多少时间 才能继续发送验证码
                 if ($exis->count >= 10){
-
-                    $time = $exis->created_at + 3600;
+                    $time = strtotime($exis->created_at) + 3600;
 
                     if ( $time > time()){
                         $cha = $time - time();

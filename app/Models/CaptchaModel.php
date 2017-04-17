@@ -13,7 +13,15 @@ class CaptchaModel extends Model
 
     //存入UNIX时间戳
     protected $dateFormat = 'U';
-    //不让转换成字符串
-    public $timestamps    = false;
 
+
+    public function getCreatedAtAttribute($value)
+    {
+        return empty($value) ? '' : date('Y-m-d H:i:s',$value);
+    }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return empty($value) ? '' : date('Y-m-d H:i:s',$value);
+    }
 }
