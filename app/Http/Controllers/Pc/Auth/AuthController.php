@@ -27,7 +27,6 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-//        Auth::loginUsingId(1);
         return view('pc.auth.login');
     }
 
@@ -100,7 +99,8 @@ class AuthController extends Controller
 
                             $user = UserModel::create(['email'=>$input['email'],'password' => Hash::make($input['password'])]);
 
-//                            Auth::loginUsingId($user->id);
+                            Auth::loginUsingId($user->id);
+
 
                         }catch (\Exception $e){
 
