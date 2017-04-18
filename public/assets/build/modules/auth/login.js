@@ -1,7 +1,7 @@
 //复选框
 $('.ui.checkbox').checkbox();
 
-$('#rshow').hide();
+// $('#rshow').hide();
 
 var vm = avalon.define({
     
@@ -28,7 +28,7 @@ var vm = avalon.define({
                     url     : '/send?email='+vm.remail,
                     success : function (ret) {
                         if(!ret.success){
-                            console.log(ret.msg);
+                            $('.ui.register.error.message').show();
                         }else{
                             vm.start = 59;
                             setTimeout(function () {

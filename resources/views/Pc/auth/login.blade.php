@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta name="keywords" content="了其意,淘宝客平台"/>
+    <meta name="keywords" content="其意,淘宝客平台"/>
     <meta name="description" content="懂你的淘宝客平台"/>
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="UTF-8">
-    <title>了其意 |登陆注册 -最懂您的购物折扣返利网</title>
+    <title>乐其意 |登陆注册 </title>
     <link rel="stylesheet" href="{{ URL::asset('assets/css/semantic.min.css') }}">
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <style type="text/css">
         body {
-            background-color: #F1F1F1;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            /*TODO  src需要改动下 */
+            background-image: url('http://leqiyi.cn/slide-1.jpg');
         }
         body > .grid {
             height: 100%;
@@ -26,6 +29,14 @@
             margin:  2em auto;
             width: 160px;
         }
+        .ui.blue.image.header{
+            margin-bottom: 40px;
+            font-size: 35px;
+        }
+        .ui.blue.image.header img{
+            width: 40px;
+            height: 40px;
+        }
     </style>
 </head>
 <body ms-controller="login">
@@ -34,7 +45,7 @@
     <div class="column">
         <h1 class="ui blue image header">
             <img src="/logo.png" class="ui mini image">
-            <div class="content" >
+            <div class="content">
                 乐其意
             </div>
         </h1>
@@ -42,12 +53,12 @@
             <div class="ui stacked segment">
                 <div class="ui center aligned secondary pointing menu">
                     <a class="item"  ms-class="[@current==='login' ? 'active' : '']"  ms-click="@onCurrentTab('login')">登录</a>
-                    <span class="item">·</span>
+                    <span class="item"><strong>·</strong></span>
                     <a class="item"  ms-class="[@current==='register' ? 'active' : '']"  ms-click="@onCurrentTab('register')">注册</a>
                 </div>
                 {{--登录--}}
                 <div ms-visible="@current==='login'">
-                    <form class="ui form" ms-validate="@validate">
+                    <form class="ui login form" ms-validate="@validate">
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
@@ -115,7 +126,11 @@
                             </div>
                         </div>
                         <input class="ui fluid large blue submit button" type="submit" value="注册">
-                        <div class="ui error message"></div>
+                        <div class="ui register error message">
+                            <ul class="list">
+                                <li>邮箱格式不正确!</li>
+                            </ul>
+                        </div>
                     </form>
                 </div>
             </div>
