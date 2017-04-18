@@ -73,23 +73,6 @@ var vm = avalon.define({
             $('.ui.register.error.message li').text('请输入邮箱地址!');
         }
     }
-
-    // validate     : {
-    //     // onError: function (reasons) {
-    //     //     reasons.forEach(function (reason) {
-    //     //         console.log(reason.getMessage())
-    //     //     })
-    //     // },
-    //     onValidateAll: function (reasons) {
-    //         if (reasons.length) {
-    //             reasons.forEach(function (reason) {
-    //                 console.log(reason.getMessage())
-    //             })
-    //         } else {
-    //             console.log('全部通过')
-    //         }
-    //     }
-    // }
 });
 
 //表单验证
