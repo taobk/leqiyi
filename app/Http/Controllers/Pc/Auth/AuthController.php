@@ -104,7 +104,7 @@ class AuthController extends Controller
 
                         }catch (\Exception $e){
 
-                            return response()->json(['success'=>false,'msg'=>'修改密码失败!']);
+                            return response()->json(['success'=>false,'msg'=>'注册失败!']);
 
                         }
                         //注册成功后 删掉之前使用过的验证码

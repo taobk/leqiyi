@@ -53,22 +53,35 @@
             <div class="ui stacked segment">
                 <div class="ui center aligned secondary pointing menu">
                     <a class="item"  ms-class="[@current==='login' ? 'active' : '']"  ms-click="@onCurrentTab('login')">登录</a>
-                    <span class="item"><strong>·</strong></span>
+                    <span class="item">·</span>
                     <a class="item"  ms-class="[@current==='register' ? 'active' : '']"  ms-click="@onCurrentTab('register')">注册</a>
                 </div>
                 {{--登录--}}
                 <div ms-visible="@current==='login'">
-                    <form class="ui login form" ms-validate="@validate">
+                    <form class="ui login form">
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" placeholder="请输入邮箱地址">
+                                <input type="text" name="email" ms-on-blur="@onShow" placeholder="请输入邮箱地址">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
                                 <input type="password" name="password" placeholder="请输入账号密码">
+                            </div>
+                        </div>
+                        <div ms-visible="@vshow">
+                            <div class="two fields">
+                                <div class="ten wide field">
+                                    <div class="ui left icon input">
+                                        <i class="lock icon"></i>
+                                        <input type="text" name="vcode"  placeholder="请输入验证码">
+                                    </div>
+                                </div>
+                                <div class="six wide field">
+                                    <img ms-attr="{src:@src}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">
+                                </div>
                             </div>
                         </div>
                         <div class="two fields">
@@ -88,8 +101,7 @@
                 {{--注册--}}
                 <div ms-visible="@current==='register'">
                     <form class="ui register form" id="register">
-                        {{--{!! csrf_field() !!}--}}
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        {!! csrf_field() !!}
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
@@ -102,17 +114,6 @@
                                 <input type="password" name="password"  placeholder="请输入注册账号密码" >
                             </div>
                         </div>
-                        {{--<div class="two fields">--}}
-                            {{--<div class="ten wide field">--}}
-                                {{--<div class="ui left icon input">--}}
-                                    {{--<i class="lock icon"></i>--}}
-                                    {{--<input type="vcode" name="password" ms-duplex="@vcode" ms-blur="@onVcode" placeholder="请输入验证码" ms-rules="{required:true}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="six wide field">--}}
-                                {{--<img ms-attr="{src:@src}" alt="验证码" title="点击刷新验证码" ms-click="@onCaptcha">--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                         {{--<div class="fields">--}}
                             {{--<div class="sixteen wide field">--}}
                                 {{--<label style="float: right"><a>登陆遇到问题?</a></label>--}}
@@ -128,7 +129,7 @@
                         <input class="ui fluid large blue submit button" type="submit" value="注册">
                         <div class="ui register error message">
                             <ul class="list">
-                                <li>邮箱格式不正确!</li>
+                                <li></li>
                             </ul>
                         </div>
                     </form>
