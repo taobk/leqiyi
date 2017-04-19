@@ -100,18 +100,18 @@
                 </div>
                 {{--注册--}}
                 <div ms-visible="@current==='register'">
-                    <form class="ui register form" id="register">
+                    <form class="ui register form">
                         {!! csrf_field() !!}
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="email" ms-duplex="@remail" placeholder="请输入注册邮箱地址">
+                                <input type="text" name="email"  value="" placeholder="请输入注册邮箱地址">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                <input type="password" name="password"  placeholder="请输入注册账号密码" >
+                                <input type="password" name="password"  value="" placeholder="请输入注册账号密码" >
                             </div>
                         </div>
                         {{--<div class="fields">--}}

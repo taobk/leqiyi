@@ -115,15 +115,12 @@ $('.ui.register.form').form({
         }
     },
     onSuccess:function () {
-        var data = $('.ui.register.form form').serialize();
+        var data = $('.ui.register.form').serialize();
         $.ajax({
             url: '/register',
             type: 'POST',
             data: data,
-            dataType: 'JSON',
-            cache: false,
-            processData: false,
-            contentType: false
+            datatype: 'text'
         }).done(function(ret){
             if (!ret.success){
                 $('.ui.register.error.message').show();
