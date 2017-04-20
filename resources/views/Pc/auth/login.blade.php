@@ -4,6 +4,8 @@
     <meta name="keywords" content="其意,淘宝客平台"/>
     <meta name="description" content="懂你的淘宝客平台"/>
     <link rel="shortcut icon" href="/assets/images/logo/favicon.png"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.8">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta charset="UTF-8">
     <title>乐其意 |登陆注册 </title>
